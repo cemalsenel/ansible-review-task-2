@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+    - pip:
+        name: awscli
+        state: latest
+        executable: pip3

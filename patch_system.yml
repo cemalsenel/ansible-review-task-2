@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks:
+    - package:
+        name: yum-cron
+        state: present
+    - lineinfile:
+        path: /etc/yum/yum-cron.conf
+        regexp: "^update_cmd"
+        line: "update_cmd = security"
+    - service:
+        name: yum-cron
+        state: restarted

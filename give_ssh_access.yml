@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+    - authorized_key:
+        user: root
+        key: "{{ lookup('file', 'john_doe.pub') }}"
+        state: present

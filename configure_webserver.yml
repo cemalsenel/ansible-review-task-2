@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+    - package:
+        name: nginx
+        state: present
+    - copy:
+        src: index.html
+        dest: /usr/share/nginx/html/index.html
+    - service:
+        name: nginx
+        state: started
